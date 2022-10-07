@@ -12,7 +12,7 @@ import { fibonacci } from "./exercise";
 
   document.getElementById('btn').addEventListener('click', () => {
     try {
-      const base = parseInt(document.getElementById('number').value, 10);
+      const number = parseInt(document.getElementById('number').value, 10);
       const rta = fibonacci(number);
       document.getElementById('code').innerHTML = rta;
     } catch (error) {
