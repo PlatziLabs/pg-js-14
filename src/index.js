@@ -1,16 +1,22 @@
 import "./styles.css";
-import { runCode } from "./exercise";
+import { fibonacci } from "./exercise";
 
 (() => {
-  const arrayA = [1, 2, 3, 4];
-  const arrayB = [5, 6, 7, 8];
-  const rta = runCode(arrayA, arrayB);
-
   document.getElementById("app").innerHTML = `
-  <h1>Title</h1>
-  <p>Array A: <code>${arrayA}</code></p>
-  <p>Array B: <code>${arrayB}</code></p>
-  <p>Response from <code>runCode</code>
-  <pre><code>${rta}</code></pre>
+  <h1>Fibonacci</h1>
+  <p>Number: </p>
+  <p><input id="number" value="0" placeholder="Type value" /></p>
+  <p><button id="btn" type="button">Run</button></p>
+  <p><pre><code id="code"></code></pre></p>
   `;
+
+  document.getElementById('btn').addEventListener('click', () => {
+    try {
+      const base = parseInt(document.getElementById('number').value, 10);
+      const rta = fibonacci(number);
+      document.getElementById('code').innerHTML = rta;
+    } catch (error) {
+      document.getElementById('code').innerHTML = error;
+    }
+  })
 })();
